@@ -43,6 +43,17 @@ module.exports = function (grunt) {
         tasks: ['livereload']
       }
     },
+    express: {
+      options: {
+        // Override defaults here
+        port: 9000
+      },
+      dev: {
+        options: {
+          script: 'server/server.js'
+        }
+      }
+    },
     connect: {
       options: {
         port: 9000,
@@ -265,9 +276,8 @@ module.exports = function (grunt) {
   grunt.registerTask('server', [
     'clean:server',
     'coffee:dist',
-    'compass:server',
+    'express:dev',
     'livereload-start',
-    'connect:livereload',
     'open',
     'watch'
   ]);
