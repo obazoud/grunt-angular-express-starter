@@ -41,11 +41,16 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ],
         tasks: ['livereload']
+      },
+      server: {
+        files:  [ 'server/**/*' ],
+        tasks:  [ 'express:dev', 'livereload-start' ]
       }
     },
     express: {
       options: {
         // Override defaults here
+        background: true,
         port: 9000
       },
       dev: {
@@ -276,8 +281,8 @@ module.exports = function (grunt) {
   grunt.registerTask('server', [
     'clean:server',
     'coffee:dist',
-    'express:dev',
     'livereload-start',
+    'express:dev',
     'open',
     'watch'
   ]);
