@@ -17,5 +17,6 @@ Install [LiveReload Chrome Extension](https://chrome.google.com/webstore/detail/
 git clone git://github.com/obazoud/grunt-angular-express-starter.git
 cd grunt-angular-express-starter
 npm install
+brower install
 grunt server
 ```
